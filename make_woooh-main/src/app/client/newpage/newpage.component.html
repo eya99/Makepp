@@ -1,0 +1,173 @@
+<div class="row" style="margin-left: 5px">
+  <div class="col-xl-12">
+    <div class="hk-row">
+      <div class="col-lg-7">
+        <div class="card card-refresh">
+          <div class="refresh-container">
+            <div class="loader-pendulums"></div>
+          </div>
+          <div class="card-header card-header-action">
+            <section class="hk-sec-wrapper" style="width: 50%">
+              <div class="row">
+                <h1 class="hk-sec-title col-sm">New Page</h1>
+              </div>
+
+              <p class="mb-25">Create a new page for your application</p>
+
+              <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div cdkDrag style="padding: 15px; background-color: teal">
+                      <h1>Items</h1>
+                      <div role="tabpanel">
+                        <!-- List group -->
+                        <div class="list-group" id="myList" role="tablist">
+                          <button (click)="createDiv()" class="list-group-item list-group-item-action active"
+                            data-bs-toggle="list" href="#home" role="tab">
+                            Button
+                          </button>
+                          <button (click)="openDialogTextBox()" class="list-group-item list-group-item-action"
+                            data-bs-toggle="list" href="#profile" role="tab">TextField</button>
+                          <button (click)="openDialogTextarea()" class="list-group-item list-group-item-action"
+                            data-bs-toggle="list" href="#profile" role="tab">Add Textarea</button>
+
+                            <button (click)="openDialogCheckBox()" class="list-group-item list-group-item-action"
+                            data-bs-toggle="list" href="#profile" role="tab">CheckBox</button>
+                        </div>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="home" role="tabpanel">
+                            ...
+                          </div>
+                          <div class="tab-pane" id="profile" role="tabpanel">
+                            ...
+                          </div>
+                          <div class="tab-pane" id="messages" role="tabpanel">
+                            ...
+                          </div>
+                          <div class="tab-pane" id="settings" role="tabpanel">
+                            ...
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card">
+          <mat-tab-group style="width: 300px">
+            <mat-tab label="Android">
+              <div style="margin-bottom: -7px; margin-right: 20px; display: block">
+                <img src="../../../assets/images/top.jpg" width="250" />
+              </div>
+
+              <div style="display: table">
+                <div style="display: table-cell">
+                  <img src="../../../assets/images/left.jpg" height="400" />
+                </div>
+
+                <div class="bigdiv" style="
+                    min-width: 222px;
+                    max-width: 222px;
+                    display: table-cell;
+                    background: white;
+
+                    margin: 0 auto;
+                    padding: 0px;
+                    position: relative;
+                  ">
+                  <div style="position: absolute" cdkDragBoundary=".bigdiv" cdkDrag *ngFor="let div of divs"
+                    id="div{{ div }}">
+                    <button (click)="clicktest()" class="btn btn-primary">
+                      Button
+                    </button>
+
+                    <br />
+                    <div style="position: absolute" cdkDragBoundary=".bigdiv" cdkDrag
+                      *ngFor="let x of controlsTextarea; let textarea_index= index">
+                      <label> {{x.name}}</label>
+                      <textarea name="{{x.placeholder}}"></textarea>
+
+                      <button (click)="removeTextArea(textarea_index)">Remove</button>
+                    </div>
+
+
+                    <div style="position: absolute" class="content-container tab-content-height"
+                      cdkDragBoundary=".bigdiv" cdkDrag *ngFor="let x of controlsTextbox; let textbox_index= index">
+                      <label> {{x.name}}</label>
+
+                      <input placeholder={{x.placeholder}} />
+                      <button (click)="removetextBoxList(textbox_index)">Remove</button>
+
+                    </div>
+
+
+                    <div style="position: absolute" class="content-container tab-content-height"
+                    cdkDragBoundary=".bigdiv" cdkDrag *ngFor="let x of controlscheckbox; let textbo_index= index">
+<label> {{x.titre}}</label>
+                    <input type="checkbox" formControlName="statusVal" placeholder="Enter Name"> {{x.name}}
+
+                  </div>
+
+                    <hr>
+                    <div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+
+                <div style="display: table-cell">
+                  <img src="../../../assets/images/right.jpg" height="400" />
+                </div>
+              </div>
+              <div style="margin-top: -10px; position: sticky">
+                <img src="../../../assets/images/bottom.jpg" width="250" />
+              </div>
+            </mat-tab>
+            <mat-tab label="iPhone">
+              <div style="margin-bottom: -7px; margin-right: 20px; display: block">
+                <img src="../../../assets/images/iphone-top.jpg" width="250" />
+              </div>
+
+              <div style="display: table">
+                <div style="display: table-cell">
+                  <img src="../../../assets/images/iphone-left.jpg" height="400" />
+                </div>
+
+                <div style="
+                    min-width: 217px;
+                    max-width: 217px;
+                    display: table-cell;
+                    background-image: url('../../../assets/images/iphone_menu.jpg');
+                    text-align: start;
+                    margin: 0 auto;
+                    padding: 0px;
+                    position: relative;
+                  "></div>
+
+                <div style="display: table-cell">
+                  <img src="../../../assets/images/iphone-right.jpg" height="400" />
+                </div>
+              </div>
+              <div style="margin-top: -10px; position: sticky">
+                <img src="../../../assets/images/iphone-bottom.jpg" width="250" /></div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+
+    <div class="hk-row">
+      <div class="col-lg-8"><button>Save</button></div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>
+</div>

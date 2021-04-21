@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add New </h1>
+
+  <div mat-dialog-content>
+    <form [formGroup]="form" class="question-container">
+
+      <div mat-dialog-content>
+        <div class="col-6 col-sm-4">
+          <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label"> Name</label><input #nameInput>
+              <label class="col-sm-2 col-form-label">Placeholder</label><input #paleholderInput>
+        <label class="col-sm-2 col-form-label">Validator</label>
+        <select #validatorInput>
+                <option>required</option>
+                <option>minLength</option>
+                <option>maxLength</option>
+              </select>
+            <br>
+              <label class="col-sm-2 col-form-label">Length</label><input type="number" #lengthInput>
+            </div>
+          </div>
+        </div>
+         <div class="modal-footer">
+
+            <button type="button" mat-raised-button mat-dialog-close   class="btn btn-danger btn-lg">Cancel</button>
+            <button  (click)="addDomain(nameInput.value,paleholderInput.value, validatorInput.value, lengthInput.value)" class="btn btn-primary btn-lg">add</button>
+  </div>
+
+</form>

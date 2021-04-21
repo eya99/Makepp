@@ -1,0 +1,23 @@
+
+<form [formGroup]="fields" class="example-form" (submit)="showData()">
+  Add a Chchekbox:
+  <div class='' formArrayName='elementArray' *ngFor="let item of fields.get('elementArray')['controls']; let i = index">
+    <div [formGroupName]="i">
+
+      <!-- <input type="text" formControlName="id" placeholder="Enter ID">  ID: [{{item.value.id}}] -->
+      <input type="checkbox" formControlName="statusVal" placeholder="Enter Name">
+      <!-- <input type="text" formControlName="name" placeholder="Enter Name"> -->{{item.value.name}}
+
+    </div>
+  </div>
+
+</form>
+
+<hr/>
+<input type='text'  [(ngModel)]="insertedName" placeholder="Ajouter un autre" />
+<input type='text'  [(ngModel)]="insertedtitre" placeholder="Ajouter un titre" />
+
+<!-- <input type='text' [(ngModel)]="insertedID" placeholder="ID du nouveau véhicule" /> -->
+            <button type="button" mat-raised-button mat-dialog-close   class="btn btn-danger btn-lg">Cancel</button>
+<button mat-raised-button color="primary" (click)="createNew()" class="btn btn-primary btn-lg"> Add</button>
+<button mat-raised-button color="primary" (click)="showData()" class="btn btn-primary btn-lg"> Add</button>

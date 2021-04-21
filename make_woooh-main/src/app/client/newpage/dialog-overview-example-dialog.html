@@ -1,0 +1,18 @@
+<form [formGroup]="form" >
+
+<hr>
+        <div>
+          <label>control name</label><input #nameInput>
+          <label>validator</label><select #validatorInput>
+            <option>required</option>
+            <option>minLength</option>
+            <option>maxLength</option>
+          </select>
+          <label>length</label><input type="number" #lengthInput>
+
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()">No Thanks</button>
+          <button mat-button cdkFocusInitial>Ok</button>
+        </div>
+</form>
